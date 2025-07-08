@@ -1,7 +1,6 @@
 package com.k02.to_do_list_with_dto.controller;
 
-
-import com.k02.to_do_list_with_dto.dto.SignupDTO;
+import com.k02.to_do_list_with_dto.dto.SignupDto;
 import com.k02.to_do_list_with_dto.model.User;
 import com.k02.to_do_list_with_dto.repository.UserRepository;
 import jakarta.validation.Valid;
@@ -19,27 +18,33 @@ public class SignupController {
     private final UserRepository userRepository;
 
     @GetMapping("/signup")
-    public String showSignup(Model model){
-        model.addAttribute("signupDto", new SignupDTO());
+    public String showSignup(Model model) {
+        model.addAttribute("signupDto", new SignupDto());
 
         return "signup";
     }
 
     @PostMapping("/signup")
     public String doSignup(
-            @Valid @ModelAttribute("signupDto") SignupDTO signupDTO, // 검증 결과
-           BindingResult bindingResult, // 화면에 보여주기
-           Model model
-    ){
-        if(bindingResult.hasErrors()){
+            @Valid @ModelAttribute("signupDto") SignupDto signupDTO,
+            BindingResult bindingResult,
+            Model model
+    ) {
+        if (bindingResult.hasErrors()) {
             return "signup";
         }
 
-        // 중복 가입 여부
+        if(userRepository.findByUsername(signupDTO.getUsername()) != null){
+            model.addAttribute("error", "이미 사용 준인 아이디입니다.");
+
+            return "signup";
+        }
+
         User user = User.builder()
                 .username(signupDTO.getUsername())
                 .password(signupDTO.getPassword())
                 .build();
+        userRepository.save(user);
 
         return "redirect:/login?registered";
     }

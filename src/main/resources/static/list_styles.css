@@ -1,0 +1,175 @@
+/* container & 기본 세팅 */
+body.container {
+  font-family: 'Roboto', 'Noto Sans KR', 'Helvetica Neue', Arial, sans-serif;
+  background-color: #fff;
+  color: #202124;
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 24px;
+}
+
+/* 제목 */
+h1 {
+  font-weight: 400;
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 36px;
+  color: #202124;
+}
+
+/* 메시지 박스 */
+.alert {
+  padding: 14px 20px;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+}
+
+.alert.success {
+  background-color: #e6f4ea;
+  color: #188038;
+  border: 1px solid #34a853;
+}
+
+/* 버튼 그룹 */
+.button-group {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+/* 공통 버튼 스타일 */
+.btn {
+  background-color: #1a73e8;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-weight: 500;
+  font-size: 0.875rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+  user-select: none;
+  display: inline-block;
+  border: none;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.1);
+}
+
+.btn:hover {
+  background-color: #1765cc;
+  box-shadow: 0 3px 8px rgb(0 0 0 / 0.15);
+}
+
+/* 취소 버튼 (로그아웃 등) */
+.btn.cancel {
+  background-color: #d93025;
+}
+
+.btn.cancel:hover {
+  background-color: #b1271b;
+}
+
+/* 액션 버튼(수정, 삭제) */
+.action-btn {
+  padding: 6px 14px;
+  font-size: 0.85rem;
+  border-radius: 4px;
+  margin-right: 6px;
+  display: inline-block;
+  box-shadow: none;
+  transition: background-color 0.2s ease;
+}
+
+.action-btn.edit {
+  background-color: #fbbc04;
+  color: #3c4043;
+}
+
+.action-btn.edit:hover {
+  background-color: #e2a600;
+}
+
+.action-btn.delete {
+  background-color: #ea4335;
+  color: white;
+}
+
+.action-btn.delete:hover {
+  background-color: #b3271b;
+}
+
+/* 테이블 기본 스타일 */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  box-shadow: 0 1px 3px rgb(60 64 67 / 0.15);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* 테이블 헤더 */
+thead th {
+  background-color: #f8f9fa;
+  color: #5f6368;
+  font-weight: 500;
+  padding: 14px 24px;
+  font-size: 0.875rem;
+  border-bottom: 1px solid #dadce0;
+  user-select: none;
+  text-align: left;
+}
+
+/* 테이블 바디 행 */
+tbody tr {
+  background-color: #fff;
+  transition: background-color 0.15s ease-in-out;
+  cursor: default;
+}
+
+tbody tr:hover {
+  background-color: #f1f3f4;
+}
+
+/* 테이블 셀 */
+td {
+  padding: 14px 24px;
+  font-size: 0.9rem;
+  color: #3c4043;
+  border-bottom: 1px solid #e8eaed;
+}
+
+/* 완료 여부 셀 */
+td:nth-child(3) {
+  text-align: center;
+  font-weight: 600;
+  color: #188038;
+}
+
+/* 마지막 액션 셀 정렬 */
+td:last-child {
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* 반응형 */
+@media (max-width: 600px) {
+  body.container {
+    margin: 24px auto;
+    padding: 0 12px;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  table, thead th, tbody td {
+    font-size: 0.8rem;
+  }
+
+  .btn, .action-btn {
+    font-size: 0.75rem;
+    padding: 6px 12px;
+  }
+}

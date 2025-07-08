@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <title th:text="${todoDto.id} == null ? '➕ 할 일 추가' : '✏️ 할 일 수정'">할 일 폼</title>
+  <link rel="stylesheet" th:href="@{/form_styles.css}" />
+</head>
+<body class="container">
+
+<h1 th:text="${todoDto.id} == null ? '📝 새로운 할 일 등록' : '✏️ 할 일 수정'">할 일 등록/수정</h1>
+
+<form th:action="${todoDto.id} == null ? @{/todos/add} : @{/todos/edit}"
+      th:object="${todoDto}" method="post" class="form-container">
+
+  <!-- 수정 시 id 숨겨서 전달 -->
+  <input type="hidden" th:field="*{id}" />
+
+  <!-- 제목 입력 -->
+  <div class="form-group">
+    <label for="title">제목</label>
+    <input type="text" th:field="*{title}" id="title" placeholder="할 일 제목을 입력하세요" />
+    <div th:if="${#fields.hasErrors('title')}" th:errors="*{title}" class="field-error"></div>
+  </div>
+
+  <!-- 완료 여부 -->
+  <div class="form-group checkbox-group">
+    <label>
+      <input type="checkbox" th:field="*{completed}" />
+      완료 여부
+    </label>
+  </div>
+
+  <!-- 버튼 영역 -->
+  <div class="form-buttons">
+    <button type="submit" class="btn-primary">저장</button>
+    <a th:href="@{/todos}" class="btn-secondary">취소</a>
+  </div>
+</form>
+
+</body>
+</html>

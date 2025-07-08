@@ -1,0 +1,141 @@
+/* 전체 컨테이너 */
+body.container {
+  font-family: 'Roboto', 'Noto Sans KR', 'Helvetica Neue', Arial, sans-serif;
+  background-color: #ffffff;
+  color: #202124;
+  padding: 48px 24px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* 제목 */
+h1 {
+  font-weight: 400;
+  font-size: 2.2rem;
+  margin-bottom: 36px;
+  color: #202124;
+  text-align: center;
+}
+
+/* 폼 컨테이너 */
+.form-container {
+  background-color: #f8f9fa;
+  padding: 30px 36px;
+  border-radius: 12px;
+  box-shadow: 0 1px 4px rgb(60 64 67 / 0.15);
+}
+
+/* 폼 그룹 */
+.form-group {
+  margin-bottom: 24px;
+}
+
+/* 라벨 */
+label {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: #3c4043;
+}
+
+/* 텍스트 입력 */
+input[type="text"] {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 1rem;
+  border: 1px solid #dadce0;
+  border-radius: 6px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  box-sizing: border-box;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  border-color: #1a73e8;
+  box-shadow: 0 0 6px rgb(26 115 232 / 0.4);
+}
+
+/* 체크박스 그룹 */
+.checkbox-group label {
+  font-weight: 400;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1rem;
+  color: #3c4043;
+}
+
+.checkbox-group input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+/* 에러 메시지 */
+.field-error {
+  color: #d93025;
+  font-size: 0.85rem;
+  margin-top: 6px;
+}
+
+/* 버튼 영역 */
+.form-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 30px;
+}
+
+/* 버튼 스타일 */
+.btn-primary,
+.btn-secondary {
+  padding: 12px 28px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  user-select: none;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.1);
+}
+
+.btn-primary {
+  background-color: #1a73e8;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #155ab6;
+  box-shadow: 0 3px 8px rgb(26 115 232 / 0.3);
+}
+
+.btn-secondary {
+  background-color: #f1f3f4;
+  color: #3c4043;
+}
+
+.btn-secondary:hover {
+  background-color: #e2e5e7;
+  box-shadow: 0 3px 8px rgb(60 64 67 / 0.15);
+}
+
+/* 반응형 */
+@media (max-width: 480px) {
+  body.container {
+    padding: 32px 16px;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+}
