@@ -34,8 +34,8 @@ public class SignupController {
             return "signup";
         }
 
-        if(userRepository.findByUsername(signupDto.getUsername()) != null){
-            model.addAttribute("error", "이미 사용 준인 아이디입니다.");
+        if (userRepository.findByUsername(signupDto.getUsername()) != null) {
+            model.addAttribute("error", "이미 사용 중인 아이디입니다");
 
             return "signup";
         }
